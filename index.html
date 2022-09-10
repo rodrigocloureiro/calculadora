@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div>
+        <p class="display" id="visor"><span class="res">0</span><br></p>
+        <button class="btn" id="bt1" value="1" onclick="valor(value)">1</button>
+        <button class="btn" id="bt2" value="2" onclick="valor(value)">2</button>
+        <button class="btn" id="bt3" value="3" onclick="valor(value)">3</button>
+        <button class="btnop" type="button" value="+" onclick="operador(value)">+</button>
+        <br>
+        <button class="btn" id="bt4" value="4" onclick="valor(value)">4</button>
+        <button class="btn" id="bt5" value="5" onclick="valor(value)">5</button>
+        <button class="btn" id="bt6" value="6" onclick="valor(value)">6</button>
+        <button  class="btnop"type="button" value="-" onclick="operador(value)">-</button>
+        <br>
+        <button class="btn" id="bt7" value="7" onclick="valor(value)">7</button>
+        <button class="btn" id="bt8" value="8" onclick="valor(value)">8</button>
+        <button class="btn" id="bt9" value="9" onclick="valor(value)">9</button>
+        <button class="btnop" type="button" value="*" onclick="operador(value)">*</button>
+        <br>
+        <button class="btnc" id="btc" onclick="reset()">C</button>
+        <button class="btn" id="bt0" value="0" onclick="valor(value)">0</button>
+        <button class="btn" id="btRes" onclick="resultado()">=</button>
+        <button class="btnop" type="button" value="/" onclick="operador(value)">÷</button>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

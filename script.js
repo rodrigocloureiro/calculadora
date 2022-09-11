@@ -6,7 +6,21 @@ let aux = document.querySelectorAll(".btnop");;
 
 function reset() {
     str1 = ``; 
-    str2 = ``; 
+    str2 = ``;
+    switch(op) {
+        case `+`:
+            aux[0].classList.remove("btnClick");
+            break;
+        case `-`:
+            aux[1].classList.remove("btnClick");
+            break;
+        case `*`:
+            aux[2].classList.remove("btnClick");
+            break;
+        case `/`:
+            aux[3].classList.remove("btnClick");
+            break;
+    }
     op = ``;
     visor.innerHTML = `<span class="res">0</span><br>`;
     console.clear();
@@ -59,6 +73,19 @@ function operador(val) {
         resultado();
     }
 
+    if(aux[0] != "btnop") {
+        aux[0].classList.remove("btnClick");
+    }
+    if(aux[1] != "btnop") {
+        aux[1].classList.remove("btnClick");
+    }
+    if(aux[2] != "btnop") {
+        aux[2].classList.remove("btnClick");
+    }
+    if(aux[3] != "btnop") {
+        aux[3].classList.remove("btnClick");
+    }
+
     op = `${val}`;
     console.log(op);
 
@@ -87,18 +114,22 @@ function resultado() {
         case `+`:
             resultado = n1 + n2;
             aux[0].classList.remove("btnClick");
+            console.log("case +");
             break;
         case `-`:
             resultado = n1 - n2;
             aux[1].classList.remove("btnClick");
+            console.log("case -");
             break;
         case `*`:
             resultado = n1 * n2;
             aux[2].classList.remove("btnClick");
+            console.log("case *");
             break;
         case `/`:
             resultado = n1 / n2;
             aux[3].classList.remove("btnClick");
+            console.log("case /");
             break;
     }
     str1 = `${resultado}`;

@@ -71,3 +71,8 @@ div {
 .btnc:hover {
     background-color: #757474;
 }
+
+.btnClick {
+    background-color: white;
+    color: #ef9a37;
+}

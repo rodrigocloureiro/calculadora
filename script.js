@@ -2,6 +2,7 @@ let str1 = ``;
 let str2 = ``; 
 let op = ``;
 let visor = document.querySelector('#visor');
+let aux = document.querySelectorAll(".btnop");;
 
 function reset() {
     str1 = ``; 
@@ -60,6 +61,21 @@ function operador(val) {
 
     op = `${val}`;
     console.log(op);
+
+    switch(op) {
+        case `+`:
+            aux[0].classList.add("btnClick");
+            break;
+        case `-`:
+            aux[1].classList.add("btnClick");
+            break;
+        case `*`:
+            aux[2].classList.add("btnClick");
+            break;
+        case `/`:
+            aux[3].classList.add("btnClick");
+            break;
+    }
 }
 
 function resultado() {
@@ -70,15 +86,19 @@ function resultado() {
     switch(op) {
         case `+`:
             resultado = n1 + n2;
+            aux[0].classList.remove("btnClick");
             break;
         case `-`:
             resultado = n1 - n2;
+            aux[1].classList.remove("btnClick");
             break;
         case `*`:
             resultado = n1 * n2;
+            aux[2].classList.remove("btnClick");
             break;
         case `/`:
             resultado = n1 / n2;
+            aux[3].classList.remove("btnClick");
             break;
     }
     str1 = `${resultado}`;

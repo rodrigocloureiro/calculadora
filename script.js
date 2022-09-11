@@ -2,7 +2,7 @@ let str1 = ``;
 let str2 = ``; 
 let op = ``;
 let visor = document.querySelector('#visor');
-let aux = document.querySelectorAll(".btnop");;
+let aux = document.querySelectorAll(".btnop");
 
 function reset() {
     str1 = ``; 
@@ -145,5 +145,10 @@ function resultado() {
     str1 = `${resultado}`;
     str2 = ``;
     console.log(resultado);
-    visor.innerHTML = `<span class="res">${resultado}</span><br>`;
+    if(resultado < 100000000 - 1) {
+        visor.innerHTML = `<span class="res">${resultado}</span><br>`;
+    }
+    else {
+        visor.innerHTML = `<span class="res resLow">${resultado.toPrecision(7)}</span><br>`;
+    }
 }

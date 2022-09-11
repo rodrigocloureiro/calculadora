@@ -11,6 +11,35 @@ function reset() {
     console.clear();
 }
 
+function keyInput(event) {
+    var x = event.key;
+
+    if(op == ``) {
+        if(x == 1 || x == 2 || x == 3 || x == 4 || x == 5 || x == 6 || x == 7 || x == 8 || x == 9 || x == 0) {
+            str1 += `${x}`;
+            console.log(str1);
+            visor.innerHTML = `<span class="res">${str1}</span><br>`;
+        }
+    }
+    else {
+        if(x == 1 || x == 2 || x == 3 || x == 4 || x == 5 || x == 6 || x == 7 || x == 8 || x == 9 || x == 0) {
+            str2 += `${x}`;
+            console.log(str2);
+            visor.innerHTML = `<span class="res">${str2}</span><br>`;
+        }
+    }
+
+    if(n == `+` || n == `-`|| n == `*`|| n == `/`) {
+        operador(n);
+    }
+    else if(n == `Enter` || n == `=`) {
+        resultado();
+    }
+    else if(n == `c`) {
+        reset();
+    }
+}
+
 function valor(val) {
     if(op == ``) {
         str1 += `${val}`;
@@ -25,6 +54,10 @@ function valor(val) {
 }
 
 function operador(val) {
+    if(str2 != ``) {
+        resultado();
+    }
+
     op = `${val}`;
     console.log(op);
 }

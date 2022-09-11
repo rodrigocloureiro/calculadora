@@ -39,6 +39,10 @@ div {
     margin-top: 5px;
 }
 
+.btn:hover {
+    background-color: #878484;
+}
+
 .btnop {
     width: 50px;
     height: 50px;
@@ -49,13 +53,21 @@ div {
     font-size: 20px;
 }
 
+.btnop:hover {
+    background-color: #eead62;
+}
+
 .btnc {
     width: 50px;
     height: 50px;
     border-radius: 100%;
     border: none;
     background-color: #a5a5a5;
-    color: white;
+    color: black;
     font-size: 20px;
     margin-right: 5px;
+}
+
+.btnc:hover {
+    background-color: #757474;
 }

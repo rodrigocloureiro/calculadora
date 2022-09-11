@@ -29,42 +29,52 @@ function reset() {
 function keyInput(event) {
     var x = event.key;
 
-    if(op == ``) {
-        if(x == 1 || x == 2 || x == 3 || x == 4 || x == 5 || x == 6 || x == 7 || x == 8 || x == 9 || x == 0) {
-            str1 += `${x}`;
-            console.log(str1);
-            visor.innerHTML = `<span class="res">${str1}</span><br>`;
-        }
-    }
-    else {
-        if(x == 1 || x == 2 || x == 3 || x == 4 || x == 5 || x == 6 || x == 7 || x == 8 || x == 9 || x == 0) {
-            str2 += `${x}`;
-            console.log(str2);
-            visor.innerHTML = `<span class="res">${str2}</span><br>`;
+    if(str1.length < 9) {
+        if(op == ``) {
+            if(x == 1 || x == 2 || x == 3 || x == 4 || x == 5 || x == 6 || x == 7 || x == 8 || x == 9 || x == 0) {
+                str1 += `${x}`;
+                console.log(str1);
+                visor.innerHTML = `<span class="res">${str1}</span><br>`;
+            }
         }
     }
 
-    if(n == `+` || n == `-`|| n == `*`|| n == `/`) {
-        operador(n);
+    if(op != ``) {
+        if(str2.length < 9) {
+            if(x == 1 || x == 2 || x == 3 || x == 4 || x == 5 || x == 6 || x == 7 || x == 8 || x == 9 || x == 0) {
+                str2 += `${x}`;
+                console.log(str2);
+                visor.innerHTML = `<span class="res">${str2}</span><br>`;
+            }
+        }
     }
-    else if(n == `Enter` || n == `=`) {
+
+    if(x == `+` || x == `-`|| x == `*`|| x == `/`) {
+        operador(x);
+    }
+    else if(x == `Enter` || x == `=`) {
         resultado();
     }
-    else if(n == `c`) {
+    else if(x == `c`) {
         reset();
     }
 }
 
 function valor(val) {
-    if(op == ``) {
-        str1 += `${val}`;
-        console.log(str1);
-        visor.innerHTML = `<span class="res">${str1}</span><br>`;
+    if(str1.length < 9) {
+        if(op == ``) {
+            str1 += `${val}`;
+            console.log(str1);
+            visor.innerHTML = `<span class="res">${str1}</span><br>`;
+        }
     }
-    else {
-        str2 += `${val}`;
-        console.log(str2);
-        visor.innerHTML = `<span class="res">${str2}</span><br>`;
+
+    if(op != ``) {
+        if(str2.length < 9) {
+            str2 += `${val}`;
+            console.log(str2);
+            visor.innerHTML = `<span class="res">${str2}</span><br>`;
+        }
     }
 }
 

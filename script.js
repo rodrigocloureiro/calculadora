@@ -22,7 +22,8 @@ function reset() {
             break;
     }
     op = ``;
-    visor.innerHTML = `<span class="res">0</span><br>`;
+    visor.classList.remove("resLow");
+    visor.innerHTML = ``;
     console.clear();
 }
 
@@ -34,7 +35,7 @@ function keyInput(event) {
             if(x == 1 || x == 2 || x == 3 || x == 4 || x == 5 || x == 6 || x == 7 || x == 8 || x == 9 || x == 0) {
                 str1 += `${x}`;
                 console.log(str1);
-                visor.innerHTML = `<span class="res">${str1}</span><br>`;
+                visor.innerHTML = `${str1}`;
             }
         }
     }
@@ -44,7 +45,7 @@ function keyInput(event) {
             if(x == 1 || x == 2 || x == 3 || x == 4 || x == 5 || x == 6 || x == 7 || x == 8 || x == 9 || x == 0) {
                 str2 += `${x}`;
                 console.log(str2);
-                visor.innerHTML = `<span class="res">${str2}</span><br>`;
+                visor.innerHTML = `${str2}`;
             }
         }
     }
@@ -65,7 +66,7 @@ function valor(val) {
         if(op == ``) {
             str1 += `${val}`;
             console.log(str1);
-            visor.innerHTML = `<span class="res">${str1}</span><br>`;
+            visor.innerHTML = `${str1}`;
         }
     }
 
@@ -73,7 +74,7 @@ function valor(val) {
         if(str2.length < 9) {
             str2 += `${val}`;
             console.log(str2);
-            visor.innerHTML = `<span class="res">${str2}</span><br>`;
+            visor.innerHTML = `${str2}`;
         }
     }
 }
@@ -116,39 +117,41 @@ function operador(val) {
 }
 
 function resultado() {
-    let resultado = 0;
+    let res = 0;
     let n1 = Number(str1);
     let n2 = Number(str2);
 
     switch(op) {
         case `+`:
-            resultado = n1 + n2;
+            res = n1 + n2;
             aux[0].classList.remove("btnClick");
             console.log("case +");
             break;
         case `-`:
-            resultado = n1 - n2;
+            res = n1 - n2;
             aux[1].classList.remove("btnClick");
             console.log("case -");
             break;
         case `*`:
-            resultado = n1 * n2;
+            res = n1 * n2;
             aux[2].classList.remove("btnClick");
             console.log("case *");
             break;
         case `/`:
-            resultado = n1 / n2;
+            res = n1 / n2;
             aux[3].classList.remove("btnClick");
             console.log("case /");
             break;
     }
-    str1 = `${resultado}`;
+    str1 = `${res}`;
     str2 = ``;
-    console.log(resultado);
-    if(resultado < 100000000 - 1) {
-        visor.innerHTML = `<span class="res">${resultado}</span><br>`;
+    console.log(res);
+    console.log(res.toString().length);
+    if(res.toString().length < 9) {
+        visor.innerHTML = `${res}`;
     }
     else {
-        visor.innerHTML = `<span class="res resLow">${resultado.toPrecision(7)}</span><br>`;
+        visor.classList.add("resLow");
+        visor.innerHTML = `${res.toFixed(4)}`;
     }
 }

@@ -8,8 +8,12 @@ body {
     color: white;
 }
 
-div {
+.calculator {
     width: 240px;
+}
+
+.calculator:focus {
+    outline: none;
 }
 
 .display {
@@ -23,11 +27,12 @@ div {
 }
 
 .res {
-    margin-right: 5px;
+    margin-right: 3px;
+    margin-left: 3px;
 }
 
 .resLow {
-    font-size: 38px;
+    font-size: 36px;
 }
 
 .btn {
